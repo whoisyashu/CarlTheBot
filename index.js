@@ -23,7 +23,9 @@ bot.on('ready', (session) => {
 });
 bot.on('playerJoin', async(user, position)=>{
   const welcomeuser = "welcome"+user.username+"! with emojis";
-  const aiWelcome = getAIResponse(welcomeuser)
+  const aiWelcome = getAIResponse(welcomeuser);
+  bot.message.send(aiWelcome)
+    .catch(e => console.error("[ERROR] Failed to send message:", e));
 });
 bot.on('chatCreate',async(user,message)=>{
     const args = message.toLowerCase().split(" ");
