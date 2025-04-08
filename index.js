@@ -22,7 +22,8 @@ bot.on('ready', (session) => {
       .catch(e => console.error("[ERROR] Failed to teleport:", e));
 });
 bot.on('playerJoin', async(user, position)=>{
-    bot.message.send(`Welcome to the Social Hangout Spot, ${user.username}! 🎉 Enjoy your stay!`);
+  const welcomeuser = "welcome"+user.username+"! with emojis";
+  const aiWelcome = getAIResponse(welcomeuser)
 });
 bot.on('chatCreate',async(user,message)=>{
     const args = message.toLowerCase().split(" ");
