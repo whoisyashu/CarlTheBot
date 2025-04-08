@@ -22,7 +22,11 @@ bot.on('ready', (session) => {
       .catch(e => console.error("[ERROR] Failed to teleport:", e));
 });
 bot.on('playerJoin', async(user, position)=>{
-    bot.message.send(`Welcome to the Social Hangout Spot, ${user.username}! 🎉 Enjoy your stay!`);
+  const username = user.username;
+    const command = `Create a fun and informal welcome message for a friend named ${username} in a social hangout spot room. Add emojis and keep it short (1-2 lines).`;
+    const AIWelcome = await getAIResponse(command);
+    bot.message.send(AIWelcome)
+      .catch(e => console.error("[ERROR] Failed to send message:", e));
 });
 bot.on('chatCreate',async(user,message)=>{
     const args = message.toLowerCase().split(" ");
@@ -253,6 +257,7 @@ const activeLoops = new Map(); // Stores looping emotes per user
     if(user.id === bot.info.user.id) return;
     if(message.startsWith("~")){
         const command = message.replace("~", "");
+        
         const response = await getAIResponse(command);
         bot.message.send(response)
           .catch(e => console.error("[ERROR] Failed to send message:", e));
