@@ -271,7 +271,7 @@ const activeLoops = new Map(); // Stores looping emotes per user
         contents: [
           {
             role: "user",
-            parts: [{ text: `Reply in 1-2 lines only and try to be friend of user: ${userMessage}` }]
+            parts: [{ text: `Reply in 1-2 lines only and try to be friend of user and talk like a human: ${userMessage}` }]
           }
         ],
         generationConfig: {
