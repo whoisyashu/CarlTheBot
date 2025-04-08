@@ -225,11 +225,11 @@ const activeLoops = new Map(); // Stores looping emotes per user
   bot.on("chatCreate", async (user, message) => {
     if(user.id === bot.info.user.id) return;
     if(message === "f2"){
-      bot.player.teleport(17.5, 7.25, 3, Facing.FrontLeft)
+      bot.player.teleport(user.id,17.5, 7.25, 3, Facing.FrontLeft)
         .catch(e => console.error("[ERROR] Failed to teleport:", e));
     }
     else if(message === "f1"){
-      bot.player.teleport(16.5,0,9.5, Facing.FrontLeft)
+      bot.player.teleport(user.id,16.5,0,9.5, Facing.FrontLeft)
         .catch(e => console.error("[ERROR] Failed to teleport:", e));
     }
   })
